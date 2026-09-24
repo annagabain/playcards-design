@@ -20,6 +20,9 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: clamp(14px, 0.8vw + 10px, 18px);
+}
 
 html,
 body {
@@ -74,25 +77,34 @@ body {
 
 
 
-/* playing cards*/
+/* playing gallery*/
 
-.cards {
+.gallery {
     position: absolute;
-
+    overflow: visible;
+    /* important */
     left: 50%;
     bottom: 25%;
     transform: translateX(-50%);
 
     width: min(1175px, 82vw);
 
-    display: grid;
+    /* display: grid;
     grid-template-columns:
         repeat(7, 1fr);
     gap: 12px;
-    align-items: start;
+    align-items: start; */
+    display: flex;
+    gap: 12px;
 
-    .playing-card {
+    align-items: flex-start;
+    justify-content: center;
+
+    .playing-card,
+    .playing-card-custom {
         width: 100%;
+        flex: 1 1 0;
+        min-width: 0;
 
 
         img {
@@ -105,6 +117,27 @@ body {
 
 
 
+}
+
+.gallery .playing-card,
+.playing-card-custom {
+    position: relative;
+    z-index: 1;
+
+    transition:
+        transform 250ms ease,
+        box-shadow 250ms ease,
+        z-index 0s;
+}
+
+.gallery .playing-card:hover,
+.playing-card-custom:hover {
+    transform: translateY(-10%) scale(2.5);
+
+    z-index: 999;
+
+    box-shadow:
+        0 1rem 2rem rgba(0, 0, 0, .25);
 }
 
 
@@ -135,8 +168,8 @@ body {
     }
 
 
-    /* playing cards iPhone*/
-    .cards {
+    /* playing cards gallery iPhone*/
+    .gallery {
         position: absolute;
 
         left: 50%;
@@ -144,29 +177,28 @@ body {
         top: 26.5%;
 
         transform: translateX(-50%);
-
-        /* width: 220px; */
         width: 44vw;
 
-        display: grid;
-
+        /* display: grid;
         grid-template-columns:
-            /* repeat(2, 100px); */
             repeat(2, 1fr);
 
-
-        /* column-gap: 20px; */
         column-gap: 4vw;
-
-        /* row-gap: 6px; */
         row-gap: 4vw;
+        align-items: start; */
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 4vw;
+
+        justify-content: space-between;
 
 
-        align-items: start;
-
-
-        .playing-card {
+        .playing-card,
+        .playing-card-custom {
             width: 100px;
+            flex: 0 0 calc(50% - 2vw);
+            width: auto;
 
             .playing-card img {
                 display: block;
@@ -176,6 +208,19 @@ body {
             }
         }
     }
+
+    /* scaling and rotating tests */
+    /* 
+    .gallery .playing-card:nth-child(6) {
+        transform: rotate(8deg);
+    }
+
+    .gallery .playing-card:nth-child(3) {
+        transform: scale(1.15);
+        transform-origin: center bottom;
+        z-index: 10;
+    } */
+
 
 
 
@@ -334,9 +379,9 @@ body {
         h2 {
             margin: 0;
 
-            font-family: var(--font-heading);
+            /* font-family: var(--font-heading); */
             color: var(--card-text);
-            font-family: Italiana;
+            font-family: "Italiana", serif;
             font-style: normal;
             line-height: normal;
 
