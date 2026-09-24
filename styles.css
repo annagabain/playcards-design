@@ -56,11 +56,7 @@ body {
     top: 9%;
     left: 5%;
 
-    /* width: 260px; */
-    /* width: 12rem; */
     width: calc((100% - (6 * 12px)) / 7);
-    /* padding: 1rem; */
-
 
     transform: rotate(-20deg);
 
@@ -77,12 +73,13 @@ body {
 
 
 
-/* playing gallery*/
+/* playing cards gallery*/
 
 .gallery {
     position: absolute;
     overflow: visible;
     /* important */
+    top: 60%;
     left: 50%;
     bottom: 25%;
     transform: translateX(-50%);
@@ -142,7 +139,7 @@ body {
 
 
 
-
+/* ------------------------------------------------------------------------- */
 
 
 /* Responsiveness for iPhone*/
@@ -175,20 +172,14 @@ body {
         left: 50%;
         bottom: auto;
         top: 26.5%;
+        top: 40%;
+
 
         transform: translateX(-50%);
         width: 44vw;
 
-        /* display: grid;
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        column-gap: 4vw;
-        row-gap: 4vw;
-        align-items: start; */
         display: flex;
         flex-wrap: wrap;
-
         gap: 4vw;
 
         justify-content: space-between;
@@ -210,23 +201,22 @@ body {
     }
 
     /* scaling and rotating tests */
-    /* 
-    .gallery .playing-card:nth-child(6) {
-        transform: rotate(8deg);
-    }
 
-    .gallery .playing-card:nth-child(3) {
+
+    /* .gallery .playing-card:nth-child(6) {
+        transform: rotate(8deg);
+    } */
+
+    /* .gallery .playing-card:nth-child(3) {
         transform: scale(1.15);
         transform-origin: center bottom;
         z-index: 10;
     } */
 
-
-
-
 }
 
 
+/* ------------------------------------------------------------------------- */
 
 
 /* css single card collage */
