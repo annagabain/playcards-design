@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Italiana&display=swap');
+
 :root {
     --main-background: #F5EBDD;
     --page-background: #0B3218;
@@ -8,11 +10,16 @@
     --text-dark-color: #413333;
     --text-color: #F5EBDD;
 
+
+    --font-heading: 'Irish Grover', cursive;
+    --font-body: 'Italiana', serif;
+
 }
 
 * {
     box-sizing: border-box;
 }
+
 
 html,
 body {
@@ -172,4 +179,207 @@ body {
 
 
 
+}
+
+
+
+
+/* css single card collage */
+
+.playing-card-custom {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 297 / 420;
+
+    container-type: inline-size;
+
+    overflow: hidden;
+
+    border-radius: 5.5%;
+
+    background-color: #fdfdfc;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .88), rgba(250, 248, 244, .9)),
+        url('playcard-deck/custom-playcard-building-elements/marble-bgr.png');
+
+    background-size:
+        180% 180%,
+        170% 170%,
+        160% 160%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 0 0.15% rgba(255, 255, 255, .8),
+        0 .3cqw .8cqw rgba(255, 255, 255, .5) inset,
+        0 -0.3cqw .8cqw rgba(0, 0, 0, .04) inset,
+        0 1.2cqw 2.5cqw rgba(0, 0, 0, .15),
+        0 .4cqw .8cqw rgba(0, 0, 0, .08);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 2%;
+        border-radius: 4.5%;
+
+        border: 1px solid rgba(0, 0, 0, 0.08);
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, .9),
+            inset 0 -1px 0 rgba(0, 0, 0, .03);
+
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, .55) 0%,
+                rgba(255, 255, 255, .2) 18%,
+                transparent 40%);
+
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &.queen-hearts {
+        --card-red: #f2765e;
+        --card-text: #413737;
+        --card-heading: #292525;
+    }
+
+    .card-corner {
+        width: 10.5%;
+
+        display: grid;
+        grid-template-rows: auto auto;
+        justify-items: center;
+
+        color: var(--card-red);
+
+        z-index: 2;
+
+        .rank {
+            margin: 0;
+
+            font-family:
+                "Irish Grover",
+                "Bodoni 72",
+                "Didot",
+                "Times New Roman",
+                serif;
+
+            font-size: 15cqw;
+            font-weight: 600;
+            line-height: 0.78;
+
+            letter-spacing: -0.08em;
+
+            color: var(--card-red);
+        }
+
+        .suit {
+            margin-top: 7%;
+
+            font-family: Arial, sans-serif;
+            font-size: 10.5cqw;
+            line-height: 0.75;
+
+            color: var(--card-red);
+
+
+
+        }
+
+        .red-heart img {
+            height: 0.5rem;
+            margin-top: 0.3rem;
+        }
+    }
+
+    .card-corner-top {
+        position: absolute;
+
+        top: 9.8%;
+        left: 6.7%;
+    }
+
+    .card-content {
+        position: absolute;
+
+        top: 47.8%;
+        left: 6.7%;
+        right: 6.7%;
+
+        display: grid;
+        grid-template-rows: auto auto auto;
+        row-gap: 4.2%;
+
+        max-width: 70%;
+
+        z-index: 2;
+
+        color: var(--card-text);
+
+        h2 {
+            margin: 0;
+
+            font-family: var(--font-heading);
+            color: var(--card-text);
+            font-family: Italiana;
+            font-style: normal;
+            line-height: normal;
+
+            font-size: 9cqw;
+            font-weight: 600;
+            line-height: 2;
+            transform: scaleY(1.1);
+            color: var(--card-heading);
+        }
+
+        p {
+            margin: 0;
+
+            font-family:
+                "Italiana",
+                "Times New Roman",
+                serif;
+
+            font-size: 5cqw;
+            font-weight: 400;
+            line-height: 1.2;
+
+            letter-spacing: 0.03em;
+
+            color: var(--card-text);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        strong {
+            font-weight: 500;
+            color: var(--card-text);
+        }
+    }
+
+    .card-corner-bottom {
+        position: absolute;
+
+        .red-heart img,
+        .rank {
+            rotate: 180deg;
+        }
+
+        top: 77%;
+        right: 7.2%;
+    }
 }
